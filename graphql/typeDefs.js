@@ -17,10 +17,6 @@ exports.typeDefs = gql`
 
     }
 
-    type Query {
-        getPosts: [Post]
-    }
-
     input RegisterInput {
         username: String!
         password: String!
@@ -28,7 +24,12 @@ exports.typeDefs = gql`
         email: String!
     }
 
+    type Query {
+        getPosts: [Post]
+    }
+
     type Mutation {
         register(registerInput: RegisterInput): User!
+        login(username: String!, password: String!): User!
     }
 `;
