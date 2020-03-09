@@ -10,6 +10,8 @@ const port = 5000;
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+
+    // give resolvers access to req params
     context: ({ req }) => ({ req })
 });
 
