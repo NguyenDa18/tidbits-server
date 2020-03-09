@@ -9,7 +9,8 @@ const port = 5000;
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
 });
 
 const startServer = async () => {
