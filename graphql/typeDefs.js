@@ -6,6 +6,21 @@ exports.typeDefs = gql`
         body: String!
         createdAt: String!
         username: String!
+        comments: [Comment]!
+        likes: [Like]!
+    }
+
+    type Comment {
+        id: ID!
+        createdAt: String!
+        username: String!
+        body: String!
+    }
+
+    type Like {
+        id: ID!
+        createdAt: String!
+        username: String!
     }
 
     type User {
@@ -34,5 +49,8 @@ exports.typeDefs = gql`
         login(username: String!, password: String!): User!
         createPost(body: String!): Post!
         deletePost(postId: ID!): String!
+        createComment(postId: String!, body: String!): Post!
+        deleteComment(postId: String!, commendId: ID!): Post!
+        likePost(postId: ID!): Post!
     }
 `;
