@@ -2,17 +2,20 @@ const dotenv = require('dotenv');
 dotenv.config();
 const { connectDB } = require('./config/db');
 
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, PubSub } = require('apollo-server');
 const { typeDefs } = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
 const port = 5000;
+
+// init PubSub pattern to pass in context
+const pubsub = new PubSub();
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
 
     // give resolvers access to req params
-    context: ({ req }) => ({ req })
+    context: ({ req }) => ({ req, pubsub })
 });
 
 const startServer = async () => {

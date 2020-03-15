@@ -79,3 +79,20 @@ mutation {
   }
 }
 ```
+
+### Post Subscription: Listen to new posts
+```graphql
+subscription {
+  newPost {
+    id
+    body
+    createdAt
+    comments {
+      createdAt
+    }
+    likes {
+      createdAt
+    }
+  }
+}
+```
