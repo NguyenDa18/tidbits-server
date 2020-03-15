@@ -50,7 +50,7 @@ exports.typeDefs = gql`
         createPost(body: String!): Post!
         deletePost(postId: ID!): String!
         createComment(postId: String!, body: String!): Post!
-        deleteComment(postId: String!, commendId: ID!): Post!
+        deleteComment(postId: String!, commentId: ID!): Post!
         likePost(postId: ID!): Post!
     }
 `;

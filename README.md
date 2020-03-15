@@ -65,3 +65,17 @@ mutation {
   }
 }
 ```
+
+### Delete Comment
+```graphql
+mutation {
+  deleteComment(commentId: "<commentid>", postId: "<postid>") {
+    id
+    comments {
+      id
+      username
+      body
+    }
+  }
+}
+```
