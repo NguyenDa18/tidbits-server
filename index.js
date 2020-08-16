@@ -5,7 +5,7 @@ const { connectDB } = require('./config/db');
 const { ApolloServer, PubSub } = require('apollo-server');
 const { typeDefs } = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
-const port = 5000;
+const port = process.env.PORT || 8000;
 
 // init PubSub pattern to pass in context
 const pubsub = new PubSub();
